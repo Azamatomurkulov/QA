@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="../static/addStyle.css" th:href="addStyle.css">
+  <title>Forms</title>
+</head>
+<body>
+<h1 class="regtitle" id="title">Регистрация</h1>
+<p id="description"><em></em> </p>
+
+<form th:method="GET" th:action="@{/add/newShop}" th:object="${dto}">
+  <label for="fname" id="name-label" class="lab">Название магазина</label><br>
+
+  <input type="text" th:field="*{name}" id="fname" class="inputl" name="fname" placeholder="Название магазина" required><br>
+
+  <label for="city" id="city-label" class="lab">ID города</label><br>
+  <input type="text" th:field="*{cityId}" id="city" class="inputl" name="email" placeholder="ID города" required><br>
+
+  <label for="street" id="street-label" class="lab">ID улицы</label><br>
+  <input type="text" th:field="*{streetId}" id="street" class="inputl" name="login" placeholder="ID улицы" required><br><br>
+
+  <label for="house" id="house-label" class="lab">Номер дома</label><br>
+  <input type="text" th:field="*{house}" id="house" class="inputl" name="password" placeholder="Номер дома" required><br>
+
+
+  <label for="open" id="open-label" class="lab">Время открытия</label><br>
+  <input type="text" th:field="*{openingTime}" id="open" class="inputl" name="password" placeholder="Время открытия" required><br>
+
+
+  <label for="close" id="close-label" class="lab">Время закрытия</label><br>
+  <input type="text" th:field="*{closingTime}" id="close" class="inputl" name="password" placeholder="Время закрытия" required><br>
+
+
+  <br>
+  <button type="sign up" class="sign-button" id="submit">Добавить</button>
+  <a class="nav-item" href="/main">На главную</a>
+</form>
+</main>
+
+</body>
+</html>

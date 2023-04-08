@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href="../static/findShop.css" th:href="findShop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+
+  <title>Library</title>
+</head>
+<body>
+<div class="header">
+  <div class="container">
+    <div class="header-line">
+
+
+      <div class="nav">
+        <a class="nav-item" href="/allCities">Список городов</a>
+        <a class="nav-item" href="/allStreets">Список улиц</a>
+        <a class="nav-item" href="/allShops">Список магазинов</a>
+
+      </div>
+
+
+
+
+
+      <div class="btn">
+
+        <a class="button" href="/search">
+          Поиск
+        </a>
+      </div>
+
+      <div  class="register">
+        <a class="button-reg" href="/main">
+          На главную
+        </a>
+      </div>
+      <div  class="register">
+        <a class="button-reg" href="/add">
+          Добавить магазин
+        </a>
+      </div>
+
+    </div>
+
+    <div th:switch="${shops}">
+      <h2 th:case="null">Nothing to display</h2>
+      <div th:case="*">
+        <h2 class="annotation">Магазины</h2>
+        <table>
+          <thead>
+          <tr>
+            <th class="annotation">ID</th>
+            <th class="annotation">Название</th>
+            <th class="annotation">Город</th>
+            <th class="annotation">Улица</th>
+            <th class="annotation">Дом</th>
+            <th class="annotation">Часы</th>
+            <th class="annotation">Работы</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="shop : ${shops}">
+            <td class="li" th:text="${shop.getId()}"></td>
+            <td class="li" th:text="${shop.getName().toString()}"></td>
+            <td class="li" th:text="${shop.getCity().toString()}"></td>
+            <td class="li" th:text="${shop.getStreet().toString()}"></td>
+            <td class="li" th:text="${shop.getHouse().toString()}"></td>
+            <td class="li" th:text="${shop.getOpeningTime()}"></td>
+            <td class="li" th:text="${shop.getClosingTime()}"></td>
+
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</body>
+</html>
